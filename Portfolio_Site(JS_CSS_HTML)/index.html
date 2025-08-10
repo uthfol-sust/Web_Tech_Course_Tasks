@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uthpol</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body class="body">
+   <!-- Navbar -->
+    <div class="web-bar">
+      <nav>
+          <div class="nav-item">
+            <a href="#home" class="nav-text">Home</a>
+          </div>
+          <div class="nav-item">
+            <a href="#projects" class="nav-text">Projects</a>
+          </div>
+          <div class="nav-item">
+            <a href="#stack" class="nav-text">Stack</a>
+          </div>
+          <div class="nav-item">
+            <a href="#contact" class="nav-text">Contact Me</a>
+          </div>
+          <hr>
+      </nav>
+    </div>
+     
+    <!-- home section -->
+    <div id="home" class="welcome">
+     <div >
+         <h1 class="welcome-text" id="type-text"></h1>
+         <div class="about-me">
+            <div class="vertical-line">
+              <h2 class="about-title">About me</h2>
+              <p class="about-text">I’m a 3rd year, 1st semester Software Engineering student at SUST with a strong foundation in programming and a passion for creating meaningful software solutions. I enjoy tackling challenges, learning new technologies, and collaborating on innovative projects that make a difference...</p>
+              <a href="about.Details.html" class="about-details">more</a>
+            </div>
+         </div>
+      </div>
+      <img src="./image/dp.jpeg" alt="uthpol" class="img">
+    </div>
+
+    <!-- Stack section -->
+     <section id="stack" class="stack-section">
+         <h1 class="contact-title">My Expertise</h1>
+         <div class="skills-section">
+            <div class="stack-list">  </div>
+            <div class="skills-line"></div>
+            <div class="skills"></div>
+         </div>
+     </section>
+
+    <!-- Project -->
+     <section id="projects" class="projects-section">
+       <h1 class="contact-title">My Project Works</h1>
+       <div class="title-underline"></div>
+       <div class="projects-list">
+           <!-- handle  from js file -->
+       </div>
+     </section>
+ 
+   <!-- contact -->
+<section id="contact" class="contact-section">
+  <h1 class="contact-title" >Get in Touch</h1>
+  <div class="contact-info">
+    <!-- Left side-->
+    <div class="contact-item-left">
+      <h1 style="color: rgba(213, 37, 37, 0.645);">Let's Connect and Build Together</h1>
+      <p class="contact-para">
+        Open to new opportunities, creative collaborations, or thoughtful conversations.
+        If you’d like to work together or just connect, don’t hesitate to get in touch.
+      </p>
+
+      <div class="email-link">
+        <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;&nbsp;
+        <a href="mailto:uthfolghosh9038@gmail.com" class="email-link">uthfolghosh9038@gmail.com</a>
+      </div>
+
+      <div class="email-link">
+        <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp;
+        <a href="tel:+8801405324648" class="email-link">+8801405324648</a>
+      </div>
+
+      <div class="email-link">
+        <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;Sylhet, Bangladesh
+      </div>
+
+      <div class="find-me">
+        <h4>Find Me On</h4>
+        <a href="https://www.facebook.com/" class="social-icon" >
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://github.com/uthfol-sust" class="social-icon" >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/uthpolghosh/" class="social-icon" >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/uthfol-ghosh-7637b428b/" class="social-icon" >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side-->
+    <div class="contact-item-right">
+      <div class="message-form">
+        <h2 >Send Me a Message</h2>
+        <p class="contact-para">Fill out the form below to get in touch. I'm excited to hear from you!</p>
+        <form id="contactForm">
+            <label for="name">Your Name</label><br>
+            <input type="text" id="name" class="feedback-input" required><br>
+
+            <label for="email">Your Email</label><br>
+            <input type="email" id="email" class="feedback-input" required><br>
+
+            <label for="subject">Subject</label><br>
+            <input type="text" id="subject" placeholder="Project Inquiry / Collaboration Idea" class="feedback-input"><br>
+
+            <label for="message">Your Message</label><br>
+            <textarea id="message" placeholder="Your Message" rows="5" class="feedback-msg" required></textarea><br>
+
+            <button type="submit" id="submitBtn" class="submit-btn">Send</button>
+        </form>
+        <small>By submitting this form, you consent to being contacted regarding your inquiry.</small>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+    &copy; 2025 uthpol ghosh. All rights reserved.
+</footer>
+<script type="module" src="main.js"></script>
+</body>
+</html>
