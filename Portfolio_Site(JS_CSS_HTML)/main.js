@@ -24,58 +24,112 @@
   
 
   //project section
-  import projectsData from "./project.data.js";
-  // console.log(projectsData)
+import projectsData from "./project.data.js";
 
-  const  createProjectCard = (project) => {
-  const card = document.createElement("div");
-  card.classList.add("project");
+function showProjectDetails(project, card) {
 
-  if (project.image) {
-    const img = document.createElement("img");
-    img.src = project.image;
-    img.alt = project.title + " screenshot";
-    img.classList.add("project-img");
-    card.appendChild(img);
+  let existingDetails = card.querySelector(".project-details");
+  if (existingDetails) {
+    existingDetails.remove();
+    return;
   }
 
-  const title = document.createElement("h3");
-  title.classList.add("project-title");
-  title.textContent = project.title;
-
-  if (project.github) {
-    const githubLink = document.createElement("a");
-    githubLink.href = project.github; 
-    githubLink.target = "_blank";
-    githubLink.rel = "noopener noreferrer";
-    githubLink.classList.add("github-link");
-    githubLink.textContent = "View";
-    title.appendChild(githubLink);
-  }
-  card.appendChild(title);
+  const detailsDiv = document.createElement("div");
+  detailsDiv.classList.add("project-details");
 
   if (project.technologies && project.technologies.length) {
-    const tech = document.createElement("p");
-    tech.classList.add("project-tech");
-    tech.innerHTML = `<strong>Technologies:</strong> ${project.technologies.join(", ")}`;
-    card.appendChild(tech);
+    const techContainer = document.createElement("p")
+    techContainer.classList.add("project-tech");
+
+    const title = document.createElement("strong");
+    title.textContent = "Technologies:"
+    techContainer.append(title)
+
+    const techItemsContainer = document.createElement("div");
+    techItemsContainer.classList.add("tech-items-container")
+
+    project.technologies.forEach(techName => {
+      const techItem = document.createElement("span")
+      techItem.classList.add("tech-item")
+      techItem.textContent = techName;
+      techItemsContainer.append(techItem)
+    });
+
+    techContainer.append(techItemsContainer);
+    detailsDiv.append(techContainer)
   }
 
-  if (project.description) {
-    const desc = document.createElement("p");
-    desc.classList.add("project-desc");
-    desc.textContent = project.description;
-    card.appendChild(desc);
+
+  if (project.features && project.features.length) {
+
+    const featuresTitle = document.createElement("h4");
+    featuresTitle.textContent = "Features:";
+    detailsDiv.append(featuresTitle);
+
+    const ul = document.createElement("ul");
+    project.features.forEach(feature => {
+      const li = document.createElement("li");
+      li.textContent = feature;
+      ul.appendChild(li);
+    });
+    detailsDiv.append(ul);
   }
-  return card;
+
+  if (project.github) {
+    const githubLink = document.createElement("a")
+    githubLink.href = project.github
+    githubLink.target = "_blank"
+    githubLink.rel = "noopener noreferrer"
+    githubLink.classList.add("github-link")
+    githubLink.textContent = "View Source Code"
+    detailsDiv.append(githubLink)
+  }
+
+  card.append(detailsDiv)
+}
+
+const createProjectCard = (project) => {
+  const card = document.createElement("div")
+  card.classList.add("project")
+
+  if (project.image) {
+    const img = document.createElement("img")
+    img.src = project.image
+    img.alt = project.title
+    img.classList.add("project-img")
+    card.append(img)
+  }
+
+  const title = document.createElement("h3")
+  title.classList.add("project-title")
+  title.textContent = project.title
+  card.append(title)
+
+  if (project.description) {
+    const desc = document.createElement("p")
+    desc.classList.add("project-desc")
+    desc.textContent = project.description
+    card.append(desc)
+  }
+
+  const detailsBtn = document.createElement("button")
+  detailsBtn.textContent = "Details"
+  detailsBtn.classList.add("details-btn")
+  detailsBtn.addEventListener("click", () => {
+    showProjectDetails(project, card)
+  })
+  card.append(detailsBtn)
+
+  return card
 }
 
 const projectsList = document.querySelector(".projects-list")
+projectsData.forEach(project => {
+  const card = createProjectCard(project)
+  projectsList.append(card)
+})
 
-projectsData.forEach(proj => {
-  const card = createProjectCard(proj)
-  projectsList.appendChild(card)
-});
+
 
 
 //stack section
