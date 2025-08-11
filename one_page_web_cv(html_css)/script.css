@@ -108,7 +108,8 @@ ul.interests,ul.languages {
 
 div.name-bar{
     background-color: #2f3c39;
-    height: 137px;
+    height: fit-content;
+    min-height: 137px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
     display: flex;
@@ -134,13 +135,12 @@ hr {
   border-top: 1px solid #ccc;
   margin: 5px 0;
 }
-.about-me{
+.about-me {
   font-size: 14px;
   line-height: 1;
   color: rgb(208, 202, 202);
-  margin-top: 10px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 10px auto; 
+  max-width: 90%;     
 }
 
  ul.skills,ul.projects,ul.competitive, ul.organizations {
